@@ -1,0 +1,55 @@
+{
+  "name": "express-ts-scaffold",
+  "version": "0.0.0",
+  "description": "",
+  "engines": {
+    "node": ">= 16.13 <17"
+  },
+  "devDependencies": {
+    "@types/jest": "~29.1",
+    "@types/node": "~16",
+    "@typescript-eslint/eslint-plugin": "~5.39",
+    "@typescript-eslint/parser": "~5.39",
+    "eslint": "~8.24",
+    "eslint-config-prettier": "~8.5",
+    "eslint-plugin-jest": "~27.1",
+    "jest": "~29.1",
+    "nodemon": "^2.0.20",
+    "prettier": "~2.7",
+    "rimraf": "~3.0",
+    "ts-jest": "~29.0",
+    "tsutils": "~3.21",
+    "typescript": "~4.8"
+  },
+  "scripts": {
+    "dev": "PORT=3001 NODE_ENV=TEST nodemon --exec node --loader ts-node/esm src/main.ts",
+    "start": "node build/src/main.js",
+    "clean": "rimraf coverage build tmp",
+    "prebuild": "npm run lint",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "lint": "eslint . --ext .ts --ext .mts",
+    "test": "jest --coverage",
+    "prettier": "prettier --config .prettierrc --write .",
+    "test:watch": "jest --watch"
+  },
+  "author": "cybaj",
+  "license": "MIT",
+  "repository": "https://github.com/cybaj/express-ts-scaffold",
+  "dependencies": {
+    "@hapi/boom": "^10.0.0",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.6.0",
+    "helmet": "^6.0.0",
+    "morgan": "^1.10.0",
+    "ts-node": "^10.9.1",
+    "tslib": "~2.4"
+  },
+  "volta": {
+    "node": "16.17.0"
+  }
+}
