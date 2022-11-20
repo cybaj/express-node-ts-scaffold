@@ -11,7 +11,6 @@ RUN yarn build
 
 FROM node:16-alpine3.14
 RUN apk add --update --repository http://dl-cdn.alpinelinux.org/alpine/edge/community --repository http://dl-cdn.alpinelinux.org/alpine/edge/main vips-dev 
-RUN apk add --no-cache python2 py-pip make g++ tzdata
 RUN echo "Asia/Seoul" > /etc/timezone
 
 ARG NODE_ENV=production
